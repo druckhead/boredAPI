@@ -50,17 +50,19 @@
   <div class="container-fluid px-3">
     <div
       class="row row-cols-1 row-cols-xxl-2 justify-content-xxl-around align-content-around justify-content-around flex-column flex-lg-row gap-sm-3 gap-md-5 gap-xxl-0">
-      <div class="col col-xxl-5 rounded border border-secondary  p-3">
-        <form class="rounded-3 p-3">
-          <fieldset>
+      <div class="col col-xxl-5 rounded border border-secondary p-3">
+        <form id="filter-form" class="rounded-3 p-3" onsubmit="getActivity(event)">
+          <fieldset id="activity-generator">
             <legend>Activity Generator</legend>
             <div class="mb-3">
-              <label for="disabledRangeInput" class="form-label">Number of Participants: <span><output id="participant-value">1</output></span></label>
-              <input type="range" id="disabledRangeInput" class="form-range" min="1" max="10" value="1" oninput="document.getElementById('participant-value').value = value">
+              <label for="rangeInput" class="form-label">Number of Participants: <span><output
+                    id="participant-value">1</output></span></label>
+              <input type="range" name="participants" id="rangeInput" class="form-range" min="1" max="10" value="1"
+                oninput="document.getElementById('participant-value').value = value">
             </div>
             <div class="mb-3">
-              <label for="disabledSelect" class="form-label">Disabled select menu</label>
-              <select id="disabledSelect" class="form-select">
+              <label for="activitySelect" class="form-label">Disabled select menu</label>
+              <select id="activitySelect" name="type" class="form-select">
                 <option value="">--Select an Option--</option>
                 <option value="busywork">Busywork</option>
                 <option value="charity">Charity</option>
@@ -75,17 +77,20 @@
             </div>
             <div class="mb-3">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck">
-                <label class="form-check-label" for="disabledFieldsetCheck">
+                <input id="free-checkbox" class="form-check-input" type="checkbox" value="" name="price" id="check">
+                <label class="form-check-label" for="check">
                   Free Activity
                 </label>
               </div>
             </div>
-            <button type="submit" class="btn btn-outline-success">Submit</button>
+            <button id="submit-form-btn" type="submit" class="btn btn-outline-success">Submit</button>
             <button type="reset" class="btn btn-outline-danger">Reset</button>
           </fieldset>
         </form>
-        <button class="btn btn-outline-secondary" onclick="getActivity()">Random</button>
+        <div class="container-fluid px-5">
+          <button id="random-activity-btn" class="btn btn-outline-secondary"
+            onclick="getRandomActivity()">Random</button>
+        </div>
       </div>
       <div class="col col-xxl-5 rounded">column</div>
     </div>
