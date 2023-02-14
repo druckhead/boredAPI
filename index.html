@@ -6,6 +6,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Latest compiled JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/src/styles/app.css">
   <!-- Scripts -->
   <script src="src/scripts/index.js"></script>
   <!-- Meta -->
@@ -47,21 +49,21 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid px-3">
+  <div class="container-fluid px-3 fill-viewport">
     <div
-      class="row row-cols-1 row-cols-xxl-2 justify-content-xxl-around align-content-around justify-content-around flex-column flex-lg-row gap-sm-3 gap-md-5 gap-xxl-0">
+      class="row row-cols-1 row-cols-xxl-2 justify-content-center flex-column flex-lg-row gap-sm-3 gap-md-5 gap-xxl-0 h-100">
       <div class="col col-xxl-5 rounded border border-secondary p-3">
         <form id="filter-form" class="rounded-3 p-3" onsubmit="getActivity(event)">
           <fieldset id="activity-generator">
-            <legend>Activity Generator</legend>
-            <div class="mb-3">
+            <legend class="mb-4">Activity Generator</legend>
+            <div>
               <label for="rangeInput" class="form-label">Number of Participants: <span><output
                     id="participant-value">1</output></span></label>
               <input type="range" name="participants" id="rangeInput" class="form-range" min="1" max="10" value="1"
                 oninput="document.getElementById('participant-value').value = value">
             </div>
-            <div class="mb-3">
-              <label for="activitySelect" class="form-label">Disabled select menu</label>
+            <div class="my-4">
+              <label for="activitySelect" class="form-label">Choose an Activity</label>
               <select id="activitySelect" name="type" class="form-select">
                 <option value="">--Select an Option--</option>
                 <option value="busywork">Busywork</option>
@@ -75,7 +77,7 @@
                 <option value="social">Social</option>
               </select>
             </div>
-            <div class="mb-3">
+            <div class="my-4">
               <div class="form-check">
                 <input id="free-checkbox" class="form-check-input" type="checkbox" value="" name="price" id="check">
                 <label class="form-check-label" for="check">
@@ -83,19 +85,28 @@
                 </label>
               </div>
             </div>
-            <button id="submit-form-btn" type="submit" class="btn btn-outline-success">Submit</button>
-            <button type="reset" class="btn btn-outline-danger">Reset</button>
+            <div class="my-4 d-flex gap-5">
+              <button id="submit-form-btn" type="submit" class="btn btn-outline-success">Submit</button>
+              <button type="reset" class="btn btn-outline-danger">Reset</button>
+            </div>
           </fieldset>
         </form>
-        <div class="container-fluid px-5">
+        <div class="container-fluid px-3 mb-3">
           <button id="random-activity-btn" class="btn btn-outline-secondary"
             onclick="getRandomActivity()">Random</button>
         </div>
       </div>
-      <div class="col col-xxl-5 rounded border border-secondary p-3">
-        <h4>Activity List</h4>
-        <ul id="products" class="container-fluid border round list-group" hidden>
-        </ul>
+      <div class="col col-xxl-5 rounded border border-secondary p-3 bg-light">
+        <div class="p-3">
+          <h4 class="mb-1">Activity List</h4>
+          <p class="mb-3">Generated activities will be listed below.</p>
+          <ul id="products" class="container-fluid round list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">Hi</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Hi</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Hi</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Hi</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
