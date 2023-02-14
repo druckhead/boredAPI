@@ -50,8 +50,7 @@
     </div>
   </nav>
   <div class="container-fluid fill-viewport">
-    <div
-      class="row row-cols-1 row-cols-xxl-2 justify-content-center flex-xs-column flex-lg-row h-100 mt-3">
+    <div class="row row-cols-1 row-cols-xxl-2 justify-content-center flex-xs-column flex-lg-row h-100 mt-3">
       <div class="col col-xxl-5 rounded border border-secondary p-3">
         <form id="filter-form" class="rounded-3 p-3" onsubmit="getActivity(event)">
           <fieldset id="activity-generator">
@@ -100,8 +99,11 @@
       <div class="col col-xxl-5 rounded border border-secondary p-3 bg-light">
         <div class="p-3">
           <h4 class="mb-1">Activity List</h4>
-          <p class="mb-3">Generated activities will be listed below.</p>
-          <ul id="products" class="container-fluid round list-group scrollable">
+          <div class="d-flex justify-content-between">
+            <p class="mb-3 d-inline-block">Generated activities will be listed below.</p>
+            <button class="btn btn-outline-danger mb-3" type="button" onclick="clearAll()">Clear All</button>
+          </div>
+          <ul id="activities" class="container-fluid round list-group scrollable">
           </ul>
         </div>
       </div>
