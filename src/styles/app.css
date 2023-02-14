@@ -1,3 +1,8 @@
 .fill-viewport {
   height: calc(100vh - 56px - 41px - 32px);
 }
+
+.scrollable {
+  overflow-y: scroll;
+  max-height: calc(50vh);
+}
